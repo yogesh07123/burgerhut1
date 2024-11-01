@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Burger Hut</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; 
+    color: #ffffff; 
+}
+
+header {
+    background-color: #1e1e1e; 
+    padding: 20px 0;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff9800; 
+}
+
+.cta {
+    margin-left: auto;
+}
+
+.cta-button {
+    background-color: #ffa600; 
+    color: #ffffff; 
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e62e00; 
+}
+
+.hero {
+    background-image: url('background.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: #ffffff; 
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero h2 {
+    font-size: 48px; 
+    margin: 0 0 10px;
+}
+
+.hero p {
+    font-size: 20px; 
+    margin: 0 0 20px;
+}
+
+.hero-cta {
+    background-color: #ff9800; 
+    color: #ffffff; 
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero-cta:hover {
+    background-color: #e68a00; 
+}
+.about {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+.about-content{
+    flex:1;
+    max-width: 600px;
+    padding-right:50px;
+    color:#fff;
+    margin-left: 5%;
+}
+.about h2{
+    font-size:36px;
+    margin-bottom: 20px;
+}
+.about p{
+    font-size: 18px;
+    margin-bottom:20px;
+}
+.about-image {
+    max-width: 50%;
+    margin-right: 5%;
+    margin-left:10%;
+}
+.about-image img{
+    max-width:100%;
+    height: auto;
+    border-radius:5px;
+}
+.dark-theme {
+    background-color: #070e16
+}
+
+.menu{
+    padding:80px 0;
+    text-align: center;
+    background-color:#070e16;
+}
+.menu h2{
+    font-size:36px;
+    margin-bottom:40px;
+    color:#ffffff
+}
+.menu-items{
+    display:flex;
+    justify-content: center;
+}
+.menu-item{
+    max-width:300px;
+    margin: 0 20px;
+    text-align: left;
+}
+.menu-item img {
+    max-width: 100%;
+    height:auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.menu-item h3{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color:#ffffff;
+}
+.menu-item p{
+    font-size:16px;
+    margin-bottom:20px;
+    color: #ffffff;
+}
+
+.reservations{
+    background-color:#1f1f1f;
+    padding: 80px 0;
+    text-align:center;
+}
+.reservation-form{
+    max-width:500px;
+    margin:0 auto;
+    background-color: #333;
+    padding:40px;
+    border-radius:5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.reservartion-form h2{
+    color: #fff;
+    font-size: 28px;
+    margin-bottom:20px;
+}
+.reservation-form form input,
+.reservation-form form textarea {
+    display:block;
+    width:450px;
+    padding:10px;
+    margin-top:5%;
+    margin-bottom:20px;
+    border-radius:5px;
+    border:none;
+}
+.reservation-form form button {
+    display: inline-block;
+    background-color:#ff0000;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:background-color 0.3s ease;
+}
+.reservation-form form button:hover{
+    background-color: #e60000;
+
+}
+.testimonials{
+    padding:80px 0;
+    text-align: center;
+    background-color:#070e16;
+}
+.testimonials h2 {
+    text-align: center;
+    font-size:36px;
+    margin-bottom:40px;
+    color:#fff;
+}
+.testimonial {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align:left;
+}
+.testimonial img {
+    display:block;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin:0 auto 20px;
+}
+.testimonial p{
+    font-size: 18px;
+    margin-bottom:20px;
+    color:#fff;
+}
+.testimonial h4{
+    font-size: 20px;
+    font-weight:bold;
+    color:#fff;
+}
+.gallery{
+    padding:80px 0;
+    text-align:center;
+    background-color:#070e16;
+}
+.gallery h2{
+    font-size: 36px;
+    margin-bottom: 40px;
+    color:#fff;
+    text-align: center;
+}
+.image-grid {
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:30px;
+    margin-left:5%;
+    margin-right:5%;
+}
+.contact {
+    background-color:#333;
+    padding:80px 0;
+    text-align: center;
+    color: #fff;
+}
+.contact-container {
+    max-width:600px;
+    margin:0 auto;
+}
+.contact h2{
+    font-size:36px;
+    margin-bottom:40px;
+}
+.contact-info {
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+}
+.info-item {
+    margin: 0 20px;
+    text-align:center;
+}
+.info-item i {
+    font-size: 24px;
+    margin-bottom:10px;
+}
+.contact-form input,
+.contact-form textarea{
+    display:block;
+    width:100%;
+    padding:10px;
+    margin-bottom:20px;
+    border-radius:5px;
+    border:none;
+}
+.contact-form textarea {
+    resize: vertical;
+}
+.contact-form button {
+    display: inline-block;
+    background-color:#ff0000;
+    color:#fff;
+    padding: 10px 20px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+    transition: background-color 0.3s ease;
+}
+.contact-form button:hover {
+    background-color:#e60000;
+}
+.footer{
+    background-color:#070e16;
+    padding: 40px 0;
+    color:#fff;
+    text-align:center;
+}
+.footer-logo img{
+    max-width:150px;
+}
+.footer-links a {
+    color:#fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.footer-social a {
+    color:#fff;
+    margin: 0 5px;
+    text-decoration:none;
+}
+.footer-text {
+    font-size:14px;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-top.visible {
+    display: block;
+}
+
+
+.promo-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.modal-content {
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff4500;
+}
+
+.image-container {
+    overflow: hidden; 
+    display: inline-block;
+    border-radius: 8px; 
+}
+
+
+.zoom-image {
+    width: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+
+
+.image-container:hover .zoom-image {
+    transform: scale(1.1); 
+}
+
+
+</style>
+
+<body>
+    <header>
+        <div>
+            <img src="iconlogo.png" alt="berger hut logo" height="50px" width="50px">
+        </div>
+        <div class="container">
+            <div class="logo">
+                <h1>Berger Hut</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reservations">Reservations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cta">
+                <a href="#reservations" class="cta-button">Book Now</a>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Experience Nature Like Never Before</h2>
+            <p>Relax and unwind in our serene hut amidst lush greenery.</p>
+            <a href="#reservations" class="hero-cta">Explore Our Hut</a>
+        </div>
+    </section>
+    <section class="about dark-theme">
+        <div class="about-content">
+            <h2>About Berger Hut</h2>
+            <p>Welcome to Berger Hut, your perfect escape into nature’s embrace. Nestled amidst the serene landscapes, 
+                our cozy hut offers a unique blend of rustic charm and modern comfort, creating an ideal retreat for nature lovers and 
+                adventure seekers alike.
+
+                <br><br>At Berger Hut, we believe that a true getaway should feel like a home away from home. 
+                Our hut features thoughtfully designed accommodations that prioritize comfort and relaxation, 
+                allowing you to unwind after a day of exploration. Whether you’re enjoying the tranquility of the surrounding forest or 
+                gazing at the stars from your private balcony, every moment spent here is a chance to reconnect with nature.</br></br></p>
+            <a href="#reservations" class="hero-cta">Explore Our Hut</a>
+        </div>
+        <div class="about-image">
+            <img src="about.png" alt="About Image" height="450px" width="450px">
+        </div>
+    </section>
+    <section>
+        <section class="menu">
+            <h2> Our menu</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="burger1.jpg" alt="burger" class="zoom-image">
+                    <h3>Classic Cheeseburger</h3>
+                    <p>A juicy beef patty topped with melted cheese, fresh
+                         lettuce,tomato,and our special sauce. 
+                         served with a side 
+                        of crispy fries.
+                    </p>
+                 </div>
+                 <div class="menu-item">
+                    <img src="burger2.jpg" alt="veggie burger" class="zoom-image">
+                    <h3>Veggie Delight</h3>
+                    <p>A delicious veggie patty made from a blend of fresh vegetables and spices. Topped with avocado, sprouts, and tangy mayo. Served with a side of sweet potato fries.</p>
+                  </div>
+                  <div class="menu-item">
+                    <img src="burger3.jpg" alt="bbq burger" class="zoom-image">
+                    <h3>Spicy BBQ Burger</h3>
+                    <p>A firey burger packed with flavor! Grilled chicken breast smothered in spicy BBQ sauce
+                        topped with jalapenos,crispy onion rings,and chipotle mayo. Served with side of 
+                        coleslaw.
+                    </p>
+                  </div>
+                </section>
+                <section class="reservations">
+                    <div class="reservation-form">
+                        <h2>Make a reservation</h2>
+                        <form>
+                            <input type="text" name="name"placeholder="Your name" required>
+                            <input type="email"name="email"placeholder="your email"required>
+                            <input type="tel" name="phone"placeholder="phone number"required>
+                            <input type="date" name="date" required>
+                            <input type="time" name="time" required>
+                            <textarea name="message" placeholder="Additional Message" rows="5"></textarea>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </section>
+                <section class="testimonials">
+                    <h2>What our customer say</h2>
+                    <div class="testimonial">
+                        <img src="testimonial1.jpg" alt="customer1" class="zoom-image">
+                        <p>"The burgers at Berger Hut are simply amazing! The flavors are rich, and the
+                             ingredients are always fresh. It's my go-to place whenever 
+                             I'm craving a delicious meal."</p>
+                             <h4>Paul Brightson</h4>
+                    <div class="testimonial">
+                        <img src="testimonial2 (1).jpg" alt="customer2" class="zoom-image">
+                        <p>Berger Hut never disappoints! The quality of their burgers and the friendly 
+                            service make it a top-notch dining experience. 
+                            I highly recommend it to all burger lovers!"</p>
+                            <h4>Sreekar Tulluri</h4>
+                    </div>
+                </section>
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <div class="image-grid">
+                <div class="image-container">
+                    <img src="gallery1.jpg" alt="gallery" height="200px" width="200px" class="zoom-image">
+                </div>
+                <div class="image-container">
+                    <img src="gallery2.jpg" alt="gallery" height="200px"width="200px" class="zoom-image">
+                </div>
+                <div class="image-container">
+                    <img src="gallery3.jpg" alt="gallery" height="200px"width="200px" class="zoom-image">
+                </div>
+                <div class="image-container">
+                    <img src="burger1.jpg" alt="gallery" height="200px" width="200px" class="zoom-image">
+                </div>
+            </div>
+        </section>
+        
+    <section class="contact">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <div class="Contact info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>123 main street chennai,india</p>
+            </div>
+        <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <p>+91 86107 62184</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <p>burgerhut@gmail.com</p>
+        </div>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email"placeholder="Your Email" required>
+            <textarea name="message"placeholder="Your message" rows="5" required></textarea>
+            <button type="submit">Send message</button>
+        </form>
+    </section>
+    
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="" alt="">
+        </div>
+        <nav class="footer-links">
+            <a href="file:///C:/Users/yoges/OneDrive/Desktop/website%20sample/index.html">Home</a>
+            <a href="file:///C:/Users/yoges/OneDrive/Desktop/website%20sample/index.html#about">About</a>
+            <a href="file:///C:/Users/yoges/OneDrive/Desktop/website%20sample/index.html#menu">Menu</a>
+            <a href="file:///C:/Users/yoges/OneDrive/Desktop/website%20sample/index.html#reservations">Reservations</a>
+            <a href="testimonials">Testimonials</a>
+            <a href="gallery">Gallery</a>
+            <a href="file:///C:/Users/yoges/OneDrive/Desktop/website%20sample/index.html#contact">Contact</a>
+        </nav>
+        <div class="footer-social">
+            <a href="www.facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <p class="footer-text">&copy; 2024 BergerHut.All rights reserved.</p>
+</footer>
+<script>
+// JavaScript for Enhanced Features
+
+// Toggle navigation menu for mobile view
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Scroll-to-top button functionality
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.textContent = '↑';
+scrollTopBtn.classList.add('scroll-top');
+document.body.appendChild(scrollTopBtn);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Interactive hover effects for images or buttons
+document.querySelectorAll('.interactive').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.style.transform = 'scale(1.05)';
+        item.style.transition = 'transform 0.3s ease-in-out';
+    });
+
+    item.addEventListener('mouseout', () => {
+        item.style.transform = 'scale(1)';
+    });
+});
+
+// Alert for promotions (with attractive modal)
+function showPromotionModal() {
+    const modal = document.createElement('div');
+    modal.classList.add('promo-modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p>Special Offer! Get 20% off your next burger when you visit this week!</p>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const closeBtn = document.querySelector('.close-btn');
+    closeBtn.addEventListener('click', () => {
+        modal.remove();
+    });
+
+    setTimeout(() => {
+        modal.remove();
+    }, 10000); // Automatically close after 10 seconds
+}
+
+// Show the modal after 5 seconds
+setTimeout(showPromotionModal, 5000);
+</script>
+</body>
+</html>
